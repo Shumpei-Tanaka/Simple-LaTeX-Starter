@@ -1,0 +1,34 @@
+{
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-e",
+                "$bibtex=\"bibtexu\"",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build_tex/%RELATIVE_DOC%",
+    "pasteImage.path": "${currentFileDir}/${currentFileName}_assets",
+    "pasteImage.filePathConfirmInputBoxMode": "onlyName",
+    "pasteImage.showFilePathConfirmInputBox": true,
+}
