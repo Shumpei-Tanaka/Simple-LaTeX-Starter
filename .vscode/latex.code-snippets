@@ -1,0 +1,64 @@
+{
+    "insert figure": {
+        "scope": "latex",
+        "prefix": "sfigure",
+        "body": [
+          "\\begin{figure}[H]",
+          "\t\\centering",
+          "\t\\includegraphics[width=0.8\\linewidth]{${1}.pdf}",
+          "\t\\caption{${2}}",
+          "\t\\label{fig:${3}}",
+          "\\end{figure}",
+          "",
+          "${0}",
+        ],
+        "description": "insert graphics"
+    },
+    "insert table": {
+        "scope": "latex",
+        "prefix": "stable",
+        "body": [
+            "\\begin{table}[H]",
+            "\t\\centering",
+            "\t\\caption{${1}}",
+            "\t\\label{tbl:${2}}",
+            "\t\\begin{tabular}{${3:cc}}",
+            "\t\t\\Hline",
+            "\t\t${0}",
+            "\t\t\\\\\\\\\\Hline",
+            "\t\\end{tabular}",
+            "\\end{table}",
+        ],
+        "description": "insert table"
+    },
+    "make itaric": {
+        "scope": "latex",
+        "prefix": "sitaric",
+        "body": [
+            "\\textit{${TM_SELECTED_TEXT}}",
+        ],
+    },
+    "insert margin": {
+        "scope": "latex",
+        "prefix": "smargine",
+        "body": [
+            "\\vskip\\baselineskip",
+        ],
+    },
+    "insert code": {
+        "scope": "latex",
+        "prefix": "scode",
+        "body": [
+            "\\begin{lstlisting}[",
+            "    caption=${1},",
+            "    label=code:${2}",
+            "]",
+            "${0:insert here}",
+            "\\end{lstlisting}",
+        ],
+    },
+    
+
+    
+
+}
