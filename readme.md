@@ -203,7 +203,7 @@ The source code is licensed MIT. See [LICENSE.md][license-url].
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[license-shield]: https://img.shields.io/github/license/Shumpei-Tanaka/Simple-LaTeX-Starter?flat-squere
+[license-shield]: https://img.shields.io/github/license/Shumpei-Tanaka/Simple-LaTeX-Starter?flat-square
 [license-url]: /LICENSE.md
 [Paypal-shield]: https://img.shields.io/badge/paypal.me-s6tanaka-white?style=flat-squere&logo=paypal
 [Paypal-url]: https://paypal.me/s6tanaka
