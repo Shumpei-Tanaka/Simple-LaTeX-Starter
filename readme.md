@@ -18,15 +18,15 @@
 
 1. [Demo](#demo)
 2. [Focus](#focus)
-    1. [xymtex を使用するときの情報源](#xymtexを使用するときの情報源)
+    1. [xymtex を使用するときの情報源](#xymtex-を使用するときの情報源)
 3. [Installation](#installation)
-    1. [TeX Live のインストールとコレクションのインストール](#tex-liveのインストールとコレクションのインストール)
-    2. [vscode のインストールと設定](#vscodeのインストールと設定)
-    3. [vscode のインストール](#vscodeのインストール)
-    4. [vscode 拡張機能のインストール](#vscode拡張機能のインストール)
+    1. [TeX Live のインストールとコレクションのインストール](#tex-live-のインストールとコレクションのインストール)
+    2. [vscode のインストールと設定](#vscode-のインストールと設定)
+    3. [vscode のインストール](#vscode-のインストール)
+    4. [vscode 拡張機能のインストール](#vscode-拡張機能のインストール)
 4. [Usage](#usage)
-    1. [タイプセットをして pdf を作成する](#タイプセットをしてpdfを作成する)
-    2. [作成した pdf を画面を分けて表示](#作成したpdfを画面を分けて表示)
+    1. [タイプセットをして pdf を作成する](#タイプセットをして-pdf-を作成する)
+    2. [作成した pdf を画面を分けて表示](#作成した-pdf-を画面を分けて表示)
     3. [画像などのファイルを手軽に貼り付ける](#画像などのファイルを手軽に貼り付ける)
     4. [スニペットを使う](#スニペットを使う)
 5. [License](#license)
@@ -203,7 +203,7 @@ The source code is licensed MIT. See [LICENSE.md][license-url].
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[license-shield]: https://img.shields.io/github/license/Shumpei-Tanaka/simple-latex-starter?flat-squere
+[license-shield]: https://img.shields.io/github/license/Shumpei-Tanaka/Simple-LaTeX-Starter?flat-squere
 [license-url]: /LICENSE.md
 [Paypal-shield]: https://img.shields.io/badge/paypal.me-s6tanaka-white?style=flat-squere&logo=paypal
 [Paypal-url]: https://paypal.me/s6tanaka
