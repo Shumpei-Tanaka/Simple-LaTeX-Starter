@@ -25,10 +25,14 @@
     3. [vscode のインストール](#vscode-のインストール)
     4. [vscode 拡張機能のインストール](#vscode-拡張機能のインストール)
 4. [Usage](#usage)
-    1. [タイプセットをして pdf を作成する](#タイプセットをして-pdf-を作成する)
-    2. [作成した pdf を画面を分けて表示](#作成した-pdf-を画面を分けて表示)
-    3. [画像などのファイルを手軽に貼り付ける](#画像などのファイルを手軽に貼り付ける)
-    4. [スニペットを使う](#スニペットを使う)
+    1. [このリポジトリをダウンロードする](#このリポジトリをダウンロードする)
+        1. [A: zip としてダウンロード](#a-zip-としてダウンロード)
+        2. [B: git clone する](#b-git-clone-する)
+    2. [このリポジトリを開く](#このリポジトリを開く)
+    3. [タイプセットをして pdf を作成する](#タイプセットをして-pdf-を作成する)
+    4. [作成した pdf を画面を分けて表示](#作成した-pdf-を画面を分けて表示)
+    5. [画像などのファイルを手軽に貼り付ける](#画像などのファイルを手軽に貼り付ける)
+    6. [スニペットを使う](#スニペットを使う)
 5. [License](#license)
 
 ## Demo
@@ -148,9 +152,26 @@ LaTeX そのものはテキストファイルで記述するため、編集に�
 
 ## Usage
 
--   このフォルダを vscode で開く
-    -   ファイルツリーが図のようになる
-        -   ![alt text](readme.md_assets/image-5.png)
+### このリポジトリをダウンロードする
+
+[A](#a-zipとしてダウンロード)、[B](#b-git-cloneする)のどちらかの方法でこのリポジトリをダウンロードする。
+
+#### A: zip としてダウンロード
+
+-   次のリンクから zip としてダウンロード・展開をする。
+
+    -   [https://github.com/Shumpei-Tanaka/Simple-LaTeX-Starter/archive/refs/heads/main.zip](https://github.com/Shumpei-Tanaka/Simple-LaTeX-Starter/archive/refs/heads/main.zip)
+
+#### B: git clone する
+
+-   git でこのリポジトリをクローンする
+
+### このリポジトリを開く
+
+-   ダウンロードしたこのリポジトリ内にある[Simple-LaTeX-Starter.code-workspace](/Simple-LaTeX-Starter.code-workspace)を vscode で開く
+
+-   ファイルツリーが図のようになる
+    -   ![alt text](readme.md_assets/image-5.png)
 -   .vscode/setting.json に LaTeX を扱う設定が記載されている
     -   これはこのフォルダを vscode で開くことで自動で反映される
 -   srcs/simple-report.tex をそのまま vscode 上で開く
