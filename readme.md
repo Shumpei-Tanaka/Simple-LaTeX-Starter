@@ -21,14 +21,20 @@
     1. [xymtex を使用するときの情報源](#xymtex-を使用するときの情報源)
 3. [Installation](#installation)
     1. [TeX Live のインストールとコレクションのインストール](#tex-live-のインストールとコレクションのインストール)
+        1. [TeX Live の基本環境のみのインストール](#tex-live-の基本環境のみのインストール)
+        2. [TeX Live の拡張機能をインストール](#tex-live-の拡張機能をインストール)
     2. [vscode のインストールと設定](#vscode-のインストールと設定)
     3. [vscode のインストール](#vscode-のインストール)
     4. [vscode 拡張機能のインストール](#vscode-拡張機能のインストール)
 4. [Usage](#usage)
-    1. [タイプセットをして pdf を作成する](#タイプセットをして-pdf-を作成する)
-    2. [作成した pdf を画面を分けて表示](#作成した-pdf-を画面を分けて表示)
-    3. [画像などのファイルを手軽に貼り付ける](#画像などのファイルを手軽に貼り付ける)
-    4. [スニペットを使う](#スニペットを使う)
+    1. [このリポジトリをダウンロードする](#このリポジトリをダウンロードする)
+        1. [A: zip としてダウンロード](#a-zip-としてダウンロード)
+        2. [B: git clone する](#b-git-clone-する)
+    2. [このリポジトリを開く](#このリポジトリを開く)
+    3. [タイプセットをして pdf を作成する](#タイプセットをして-pdf-を作成する)
+    4. [作成した pdf を画面を分けて表示](#作成した-pdf-を画面を分けて表示)
+    5. [画像などのファイルを手軽に貼り付ける](#画像などのファイルを手軽に貼り付ける)
+    6. [スニペットを使う](#スニペットを使う)
 5. [License](#license)
 
 ## Demo
@@ -70,21 +76,51 @@
 
 ここでは科学実験レポートに向けた実践で必要な機能に絞りインストールする。ここで上げているものをインストールすると 3GB ほどとなる。
 
--   install-tl.zip をダウンロード
+#### TeX Live の基本環境のみのインストール
+
+TeX Live を最小構成でインストールする。これは LaTeX さえ付属しない、ほとんど LaTeX 用のインストーラのようなものとなる。
+
+※LaTeX は TeX を使いやすくしたものであり、TeX Live の最小構成では TeX のみが付属するため。
+
+この手順では、インストール開始後、1 分程で完了する。インストール終了後、使用容量は 300MB ほどとなる。
+
+-   `install-tl.zip` をダウンロード
     -   [Installing TeX Live over the Internet - TeX Users Group](https://www.tug.org/texlive/acquire-netinstall.html)
--   install-tl-windows.bat を起動する
--   高度な設定 → スキーム →minimal スキームを選び OK
+    -   ![alt text](readme.md_assets/image-9.png)
+-   `install-tl-windows.bat` を起動する
+    -   ![alt text](readme.md_assets/image-8.png)
+-   TeX Live インストーラが表示されたら、`特定のミラーを選択`から日本のどれかを選択する
+    -   ![alt text](readme.md_assets/image-10.png)
+    -   あまりにも時間がかかるようであればここを選択し直してみると解決するかもしれない。
+-   インストーラが自動で次の画面に遷移する。
+    -   ![alt text](readme.md_assets/image-11.png)
+-   `高度な設定`ボタン → `スキーム`の行の`変更`ボタン →`minimal スキーム`を選び、OK を押す
+    -   ![alt text](readme.md_assets/image-12.png)
+    -
     -   ![alt text](readme.md_assets/20231211143338-latex--1.png)
     -
     -   ![alt text](readme.md_assets/20231211143338-latex--2.png)
+-   正しく`minimal スキーム`を選択できていれば次のような表示になる。
+    -   ![alt text](readme.md_assets/image-14.png)
+-   この状態を確認した後、`インストール`ボタンの押しインストールを開始する
+    -   ![alt text](readme.md_assets/image-15.png)
+-   １分ほどで次のようなログで終了し、基本環境のインストールは完了となる
+    -   ![alt text](readme.md_assets/image-13.png)
+
+#### TeX Live の拡張機能をインストール
+
+LaTeX で文書を作る際に必要となるであろう拡張機能をインストールしていく。
+
+この手順では、インストール開始後 1 時間ほどで終了する。インストール終了後、使用容量は 4GB ほどとなる。
+
 -   tex live manager を起動する
     -   ![alt text](readme.md_assets/20231211143338-latex--3.png)
 -   必要なものを検索、チェックを入れて「選択項目をインストール」でインストールしていく
     -   コレクションとスキームに絞ると探しやすい
     -   ![alt text](readme.md_assets/20231211143338-latex--4.png)
     -   必要なもの(3GB くらい)
+        -   collection-bibtexextra
         -   collection-binextra
-        -   collection-bibextra
         -   collection-langjapanese
         -   collection-latex
         -   collection-latexextra
@@ -96,9 +132,9 @@
             -   化学系
                 -   xymtex が付属している
                     -   化学構造図を描画できる
+        -   collection-pictures
         -   collection-pstrics
             -   xymtexps を使用してよりきれいな化学構造図を作るのに必要
-        -   collection-pictures
         -   collection-wintools
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -148,9 +184,26 @@ LaTeX そのものはテキストファイルで記述するため、編集に�
 
 ## Usage
 
--   このフォルダを vscode で開く
-    -   ファイルツリーが図のようになる
-        -   ![alt text](readme.md_assets/image-5.png)
+### このリポジトリをダウンロードする
+
+[A](#a-zipとしてダウンロード)、[B](#b-git-cloneする)のどちらかの方法でこのリポジトリをダウンロードする。
+
+#### A: zip としてダウンロード
+
+-   次のリンクから zip としてダウンロード・展開をする。
+
+    -   [https://github.com/Shumpei-Tanaka/Simple-LaTeX-Starter/archive/refs/heads/main.zip](https://github.com/Shumpei-Tanaka/Simple-LaTeX-Starter/archive/refs/heads/main.zip)
+
+#### B: git clone する
+
+-   git でこのリポジトリをクローンする
+
+### このリポジトリを開く
+
+-   ダウンロードしたこのリポジトリ内にある[Simple-LaTeX-Starter.code-workspace](/Simple-LaTeX-Starter.code-workspace)を vscode で開く
+
+-   ファイルツリーが図のようになる
+    -   ![alt text](readme.md_assets/image-5.png)
 -   .vscode/setting.json に LaTeX を扱う設定が記載されている
     -   これはこのフォルダを vscode で開くことで自動で反映される
 -   srcs/simple-report.tex をそのまま vscode 上で開く
