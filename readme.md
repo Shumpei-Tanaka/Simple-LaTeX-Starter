@@ -11,7 +11,7 @@
   <h3 align="center">Simple-LaTeX-Starter</h3>
 
   <p align="center">
-    シンプルにLaTeXをセットアップして文書を書こう
+    シンプルに $\LaTeX$ をセットアップして文書を書こう
     <br />
   </p>
 </div>
@@ -36,6 +36,11 @@
     5. [画像などのファイルを手軽に貼り付ける](#画像などのファイルを手軽に貼り付ける)
     6. [スニペットを使う](#スニペットを使う)
 5. [License](#license)
+6. [Appendix](#appendix)
+    1. [Windowsのユーザー名が日本語文字を含む場合にインストール失敗することの回避方法](#windowsのユーザー名が日本語文字を含む場合にインストール失敗することの回避方法)
+        1. [日本語文字を含まない新しいtempフォルダを作る](#日本語文字を含まない新しいtempフォルダを作る)
+        2. [`TEMP`、`TMP`環境変数を設定しなおす](#temptmp環境変数を設定しなおす)
+    2. [Sumatra PDF](#sumatra-pdf)
 
 ## Demo
 
@@ -52,7 +57,7 @@
 ## Focus
 
 ここではセットアップと例示のみを取り扱う。
-具体的な LaTeX の記載方法については[TeX Wiki](https://texwiki.texjp.org/)や Web 検索の結果を参照。
+具体的な $\LaTeX$ の記載方法については[TeX Wiki](https://texwiki.texjp.org/)や Web 検索の結果を参照。
 
 ### xymtex を使用するときの情報源
 
@@ -62,7 +67,7 @@
 
 化学反応を書く場合には
 
--   [LaTeX で化学構造式 --- XyMTeX の紹介](http://web.archive.org/web/20090224162250/http://www.klavis.info/xym.html#react)
+-   [LaTeXで化学構造式 --- XyMTeX の紹介](http://web.archive.org/web/20090224162250/http://www.klavis.info/xym.html#react)
 
 それでも不明なことがあれば[xymtex(catan)](https://ctan.org/pkg/xymtex)から xymtex.zip をダウンロードし、xymtex/doc/XyMTeX-manual.pdf を参照するとよい。
 
@@ -78,11 +83,15 @@
 
 #### TeX Live の基本環境のみのインストール
 
-TeX Live を最小構成でインストールする。これは LaTeX さえ付属しない、ほとんど LaTeX 用のインストーラのようなものとなる。
+TeX Live を最小構成でインストールする。これは $\LaTeX$ さえ付属しない、ほとんど $\LaTeX$ 用のインストーラのようなものとなる。
 
-※LaTeX は TeX を使いやすくしたものであり、TeX Live の最小構成では TeX のみが付属するため。
+※ $\LaTeX$ は TeX を使いやすくしたものであり、TeX Live の最小構成では TeX のみが付属するため。
 
 この手順では、インストール開始後、1 分程で完了する。インストール終了後、使用容量は 300MB ほどとなる。
+
+> [!CAUTION]
+> Windowsのユーザー名が日本語文字の場合、インストールが途中で止まったままになる。
+> [付録:Windowsのユーザー名が日本語文字を含む場合にインストール失敗することの回避方法](#windowsのユーザー名が日本語文字を含む場合にインストール失敗することの回避方法)をこの手順の前に実行することで、途中で止まってしまう現象を回避する。
 
 -   `install-tl.zip` をダウンロード
     -   [Installing TeX Live over the Internet - TeX Users Group](https://www.tug.org/texlive/acquire-netinstall.html)
@@ -109,16 +118,16 @@ TeX Live を最小構成でインストールする。これは LaTeX さえ付�
 
 #### TeX Live の拡張機能をインストール
 
-LaTeX で文書を作る際に必要となるであろう拡張機能をインストールしていく。
+$\LaTeX$ で文書を作る際に必要となるであろう拡張機能をインストールしていく。
 
 この手順では、インストール開始後 1 時間ほどで終了する。インストール終了後、使用容量は 4GB ほどとなる。
 
 -   tex live manager を起動する
     -   ![alt text](readme.md_assets/20231211143338-latex--3.png)
--   必要なものを検索、チェックを入れて「選択項目をインストール」でインストールしていく
+-   必要なものを全てにチェックを入れ`選択項目をインストール`ボタンを押しインストールを開始する。
     -   コレクションとスキームに絞ると探しやすい
-    -   ![alt text](readme.md_assets/20231211143338-latex--4.png)
-    -   必要なもの(3GB くらい)
+    -   ![alt text](readme.md_assets/image-16.png)
+    -   必要なもの
         -   collection-bibtexextra
         -   collection-binextra
         -   collection-langjapanese
@@ -135,19 +144,22 @@ LaTeX で文書を作る際に必要となるであろう拡張機能をイン�
         -   collection-pictures
         -   collection-pstrics
             -   xymtexps を使用してよりきれいな化学構造図を作るのに必要
-        -   collection-wintools
+    -   `選択項目をインストール`を押すとインストールが始まり、次のようなログが出始める
+        -   ![alt text](readme.md_assets/image-29.png)
+-   次のような表示で終了すればインストールが正しく完了となる
+    -   ![alt text](readme.md_assets/image-28.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### vscode のインストールと設定
 
-LaTeX そのものはテキストファイルで記述するため、編集に用いるツールはメモ帳でも何でもよい。
+$\LaTeX$ そのものはテキストファイルで記述するため、編集に用いるツールはメモ帳でも何でもよい。
 
 しかし、保存時にタイプセットを行ったり出力 pdf を随時確認するには何かしらのエディタを扱うと便利である。
 
-ここでは vscode の設定を用意したため、vscode とその拡張機能をインストールし、快適に LaTeX を記述・タイプセットするための設定を行う。
+ここでは vscode の設定を用意したため、vscode とその拡張機能をインストールし、快適に $\LaTeX$ を記述・タイプセットするための設定を行う。
 
-また、vscode は ssh や wsl のリモート接続に対応しており、より高速な LaTeX タイプセットを求めて linux に移行した際にもそのまま扱うことができる。
+また、vscode は ssh や wsl のリモート接続に対応しており、より高速な $\LaTeX$ タイプセットを求めて linux に移行した際にもそのまま扱うことができる。
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,12 +212,12 @@ LaTeX そのものはテキストファイルで記述するため、編集に�
 
 ### このリポジトリを開く
 
--   ダウンロードしたこのリポジトリ内にある[Simple-LaTeX-Starter.code-workspace](/Simple-LaTeX-Starter.code-workspace)を vscode で開く
+-   ダウンロードしたこのリポジトリ内にある[`Simple-LaTeX-Starter.code-workspace`](/Simple-LaTeX-Starter.code-workspace)を vscode で開く
 
 -   ファイルツリーが図のようになる
     -   ![alt text](readme.md_assets/image-5.png)
--   .vscode/setting.json に LaTeX を扱う設定が記載されている
-    -   これはこのフォルダを vscode で開くことで自動で反映される
+-   .vscode/setting.json に $\LaTeX$ を扱う設定が記載されている
+    -   これは`Simple-LaTeX-Starter.code-workspace`を vscode で開くことで自動で反映される
 -   srcs/simple-report.tex をそのまま vscode 上で開く
 
 ### タイプセットをして pdf を作成する
@@ -230,7 +242,7 @@ LaTeX そのものはテキストファイルで記述するため、編集に�
 
 vscode にはよく使う定型文をすばやく書くためのスニペットと呼ばれる機能がある。
 
-LaTeX における画像の貼り付け、表の作成、段落間の空行、プログラムコードの貼付けに使えるスニペットをサンプルとして用意したため、これを紹介する。
+$\LaTeX$ における画像の貼り付け、表の作成、段落間の空行、プログラムコードの貼付けに使えるスニペットをサンプルとして用意したため、これを紹介する。
 
 スニペットの定義は[/.vscode/latex.code-snippets](/.vscode/latex.code-snippets)にある。
 
@@ -253,6 +265,58 @@ LaTeX における画像の貼り付け、表の作成、段落間の空行、�
 ## License
 
 The source code is licensed MIT. See [LICENSE.md][license-url].
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Appendix
+
+### Windowsのユーザー名が日本語文字を含む場合にインストール失敗することの回避方法
+
+#### 日本語文字を含まない新しいtempフォルダを作る
+
+-   `C:\ws\temp`となるようにフォルダを作る
+    -   フォルダは通常通り右クリックから`新規作成`で作成する
+        -   ![alt text](readme.md_assets/image-20.png)
+    -   `C:\ws\temp`を開き表示が次のようになっていれば正しい
+        -   ![alt text](readme.md_assets/image-19.png)
+
+#### `TEMP`、`TMP`環境変数を設定しなおす
+
+-   `環境変数を編集`を開く。方法はいくつかある
+
+    -   A: `Windowsキー`を押し、`環境変数を編集`を検索して開く
+        -   ![](readme.md_assets/image-17.png)
+    -   B: `コントロールパネル`から検索して開く
+        -   `コントロールパネル`を開く
+            -   ![alt text](readme.md_assets/image-22.png)
+        -   右上の検索欄に`環境変数`と検索し、`環境変数を編集`を開く
+            -   ![alt text](readme.md_assets/image-21.png)
+
+-   上の`ユーザー環境変数`の中から`TEMP`を選択し、`編集`ボタンを押す
+    -   ![alt text](readme.md_assets/image-18.png)
+-   `ディレクトリを参照`ボタンを押し、[日本語文字を含まない新しいtempフォルダを作る](#日本語文字を含まない新しいtempフォルダを作る)で作成した`C:\ws\temp`のフォルダを指定する
+    -   ![alt text](readme.md_assets/image-23.png)
+    -   ![alt text](readme.md_assets/image-24.png)
+-   正しく指定できると次の図のように`C:\ws\temp`が`変数値`欄に記載される。この状態で`OK`を押す
+    -   ![alt text](readme.md_assets/image-25.png)
+-   正しく設定できると次の図のように`TEMP`の行の`値`列が`C:\ws\temp`に書き換わる
+    -   ![alt text](readme.md_assets/image-26.png)
+-   同じ手順で`TMP`も書き換え、`TEMP`、`TMP`両方が`C:\ws\temp`になっていることを確認して`OK`を押す
+    -   ![alt text](readme.md_assets/image-27.png)
+-   これで途中終了を回避するための設定は完了となる
+
+### Sumatra PDF
+
+PDFをPCで見るにはSumatra PDFがおすすめ
+
+-   [Sumatra PDF official](https://www.sumatrapdfreader.org/free-pdf-reader)
+-   [Sumatra PDF official Download](https://www.sumatrapdfreader.org/download-free-pdf-viewer)
+
+-   利点
+    -   余計な購入促しがない
+    -   画面が広くとれ、PDFを読みやすい
+    -   日本語に対応している
+    -   PDFのパスワードを保存でき、いちいち再入力が必要ない
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
