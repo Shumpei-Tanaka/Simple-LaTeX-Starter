@@ -45,7 +45,10 @@
         2. [手順](#手順)
             1. [`TeX Live`のインストール先を確認する](#tex-liveのインストール先を確認する)
             2. [`パスを通す`](#パスを通す)
-    3. [Sumatra PDF](#sumatra-pdf)
+    3. [TeX Liveのアンインストール](#tex-liveのアンインストール)
+        1. [Uninstall TeX Liveを使用してアンインストール](#uninstall-tex-liveを使用してアンインストール)
+        2. [インストール先(`C\:texlive`)フォルダを削除する](#インストール先ctexliveフォルダを削除する)
+    4. [Sumatra PDF](#sumatra-pdf)
 
 ## Demo
 
@@ -341,7 +344,7 @@ The source code is licensed MIT. See [LICENSE.md][license-url].
     -   検索すると次のように発見できる
         -   ![alt text](readme.md_assets/image-33.png)
         -   発見できない場合、そもそもインストールに失敗しているかインストール先を間違えている。
-        -   インストール先を変えずに手順を実行しているならば一度アンインストールし、[TeX Live の基本環境のみのインストール](#tex-live-の基本環境のみのインストール)をやり直す
+        -   インストール先を変えずに手順を実行しているならば一度[アンインストール](#tex-liveのアンインストール)し、[TeX Live の基本環境のみのインストール](#tex-live-の基本環境のみのインストール)をやり直す
         -   インストール先を変えているならばそのインストール先で検索する
     -   発見した`kpsewhich.exe`を右クリックし、`プロパティ`を開く
         -   ![alt text](readme.md_assets/image-34.png)
@@ -367,6 +370,23 @@ The source code is licensed MIT. See [LICENSE.md][license-url].
 -   `OK`を押して終了する
     -   ![alt text](readme.md_assets/image-38.png)
 -   これで`Pathを通す`作業は完了となる。
+
+### TeX Liveのアンインストール
+
+ある程度インストールが進んでいれば[Uninstall TeX Liveを使用してアンインストール](#uninstall-tex-liveを使用してアンインストール)が使える。
+
+`Uninstall TeX Live`が見つからない場合、[インストール先(C\\:texlive) フォルダを削除する](#インストール先ctexliveフォルダを削除する)
+
+#### Uninstall TeX Liveを使用してアンインストール
+
+-   `Uninstall TeX Live`を検索し開く
+    -   ![alt text](readme.md_assets/image-39.png)
+-   しばらくするとアンインストールが完了する
+
+#### インストール先(`C\:texlive`)フォルダを削除する
+
+-   フォルダを`PC`→`C`→と開き、`C:\texlive`を削除する
+    -   ![alt text](readme.md_assets/a.png)
 
 ### Sumatra PDF
 
