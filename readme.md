@@ -96,6 +96,10 @@ TeX Live を最小構成でインストールする。これは $\LaTeX$ さえ�
 -   `install-tl.zip` をダウンロード
     -   [Installing TeX Live over the Internet - TeX Users Group](https://www.tug.org/texlive/acquire-netinstall.html)
     -   ![alt text](readme.md_assets/image-9.png)
+-   `install-tl.zip`を`日本語文字を含まない場所`へ移動・解凍する
+    -   `日本語文字を含まない場所`は例えば`C:\ws`など
+    -   `ドキュメント`や`ダウンロード`自体は問題ないが、これは`ユーザーフォルダ`の下にある。
+        -   `ユーザー名`が日本語文字を含む場合、`ユーザーフォルダ`が日本語文字になってしまうため、`ドキュメント`や`ダウンロード`は不可となる
 -   `install-tl-windows.bat` を起動する
     -   ![alt text](readme.md_assets/image-8.png)
 -   TeX Live インストーラが表示されたら、`特定のミラーを選択`から日本のどれかを選択する
