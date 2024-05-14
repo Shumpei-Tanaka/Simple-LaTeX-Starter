@@ -40,7 +40,12 @@
     1. [Windowsのユーザー名が日本語文字を含む場合にインストール失敗することの回避方法](#windowsのユーザー名が日本語文字を含む場合にインストール失敗することの回避方法)
         1. [日本語文字を含まない新しいtempフォルダを作る](#日本語文字を含まない新しいtempフォルダを作る)
         2. [`TEMP`、`TMP`環境変数を設定しなおす](#temptmp環境変数を設定しなおす)
-    2. [Sumatra PDF](#sumatra-pdf)
+    2. [手動でパスを通す](#手動でパスを通す)
+        1. [前提](#前提)
+        2. [手順](#手順)
+            1. [`TeX Live`のインストール先を確認する](#tex-liveのインストール先を確認する)
+            2. [`パスを通す`](#パスを通す)
+    3. [Sumatra PDF](#sumatra-pdf)
 
 ## Demo
 
@@ -126,7 +131,7 @@ $\LaTeX$ で文書を作る際に必要となるであろう拡張機能をイ�
 
 この手順では、インストール開始後 1 時間ほどで終了する。インストール終了後、使用容量は 4GB ほどとなる。
 
--   tex live manager を起動する
+-   TLShell TeX Live Manager を起動する
     -   ![alt text](readme.md_assets/20231211143338-latex--3.png)
 -   必要なものを全てにチェックを入れ`選択項目をインストール`ボタンを押しインストールを開始する。
     -   コレクションとスキームに絞ると探しやすい
@@ -308,6 +313,60 @@ The source code is licensed MIT. See [LICENSE.md][license-url].
 -   同じ手順で`TMP`も書き換え、`TEMP`、`TMP`両方が`C:\ws\temp`になっていることを確認して`OK`を押す
     -   ![alt text](readme.md_assets/image-27.png)
 -   これで途中終了を回避するための設定は完了となる
+
+### 手動でパスを通す
+
+`Pathを通す`と呼ばれる操作がある。これはPCでアプリを探す場所を登録し、実行するものを名前で見つけられるようにする操作である。
+
+通常はインストーラが自動でこの操作を行い、`TeX Live`内のものをPC上で扱えるようにしてくれる。しかし再インストールを繰り返しても自動で行われない場合を確認したため、ここに手動で`Pathを通す`手順を記載しておく。
+
+#### 前提
+
+-   [TeX Live の基本環境のみのインストール](#tex-live-の基本環境のみのインストール)を終えている。
+-   TLShell TeX Live Manager を起動すると、次のようなエラーが発生する
+    -   ![alt text](readme.md_assets/20231211143338-latex--3.png)
+    -   ![alt text](readme.md_assets/image-30.png)
+
+#### 手順
+
+##### `TeX Live`のインストール先を確認する
+
+-   フォルダを`PC`→`C`→`texlive`と開き、`C:\texlive`を表示する
+    -   ![alt text](readme.md_assets/a.png)
+-   正しく開けると次図のような表示になる
+    -   ![alt text](readme.md_assets/image-31.png)
+-   検索欄を使って`kpsewhich.exe`を検索する
+    -   検索欄はこの位置
+        -   ![alt text](readme.md_assets/image-32.png)
+    -   検索すると次のように発見できる
+        -   ![alt text](readme.md_assets/image-33.png)
+        -   発見できない場合、そもそもインストールに失敗しているかインストール先を間違えている。
+        -   インストール先を変えずに手順を実行しているならば一度アンインストールし、[TeX Live の基本環境のみのインストール](#tex-live-の基本環境のみのインストール)をやり直す
+        -   インストール先を変えているならばそのインストール先で検索する
+    -   発見した`kpsewhich.exe`を右クリックし、`プロパティ`を開く
+        -   ![alt text](readme.md_assets/image-34.png)
+    -   開いた`プロパティ`の`場所`行に表示されているものを`メモ帳`などにコピーしておく
+        -   ![alt text](readme.md_assets/image-35.png)
+
+##### `パスを通す`
+
+-   `環境変数を編集`を開く。方法はいくつかある
+
+    -   A: `Windowsキー`を押し、`環境変数を編集`を検索して開く
+        -   ![](readme.md_assets/image-17.png)
+    -   B: `コントロールパネル`から検索して開く
+        -   `コントロールパネル`を開く
+            -   ![alt text](readme.md_assets/image-22.png)
+        -   右上の検索欄に`環境変数`と検索し、`環境変数を編集`を開く
+            -   ![alt text](readme.md_assets/image-21.png)
+
+-   上の`ユーザー環境変数`の中から`Path`を選択し、`編集`ボタンを押す
+    -   ![alt text](readme.md_assets/image-36.png)
+-   `新規`ボタンを押し、現れた入力欄に[TeX Live のインストール先を確認する](#tex-liveのインストール先を確認する)で確認した`kpsewhich.exe`の場所を入力し`OK`ボタンを押す
+    -   ![alt text](readme.md_assets/image-37.png)
+-   `OK`を押して終了する
+    -   ![alt text](readme.md_assets/image-38.png)
+-   これで`Pathを通す`作業は完了となる。
 
 ### Sumatra PDF
 
