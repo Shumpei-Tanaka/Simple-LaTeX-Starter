@@ -1,0 +1,47 @@
+% bookは本全体を示す
+% inbookは本の一部分を示す
+
+% miscは雑多なもの
+% webpageは一般にこれが使用されている
+% 出版元の情報がサポートされていないため、代わりにhowpublishedを利用している
+% urlはnoteを使用している
+% urlは明示的に改行したほうがよい。見栄えが壊れる
+% note = "\\ \url{リンク}"
+
+% authorは
+% 名,性 and 名,性
+% と書く。そのままフルネーム入力でも一応可
+
+@misc{webpage1,
+    title   = "webpageのタイトル",
+    howpublished = "どこかの大学",
+    note    = "\\ \url{https://nantoka.pdf}",
+}
+
+@inbook{hon1-a,
+    author = "本Aの作者1 and 本Aの作者2",
+    title = "本A",
+    publisher = "なんとか社",
+    year = "yyyy年",
+    pages = "10--20",
+}
+
+@inbook{hon1-b,
+    author = "本Aの作者1 and 本Aの作者2",
+    title = "本A",
+    publisher = "なんとか社",
+    year = "yyyy年",
+    pages = "30",
+}
+
+@misc{handbook,
+    title   = "実験書",
+    year         = "yyyy年度",
+}
+
+@book{hon2,
+    author = "本Bの作者1 and 本Aの作者2",
+    title = "本B",
+    publisher = "なんとか社",
+    year = "yyyy年",
+}

@@ -2,6 +2,37 @@
 % タイトル・概要ページ付き
 \documentclass[titlepage]{jlreq}
 
+% フォントを指定
+\usepackage{luatexja-fontspec}
+\setmainfont[Ligatures={Rare, TeX}]{Times-New-Roman}
+\setsansfont[Ligatures={Rare, TeX}]{Times-New-Roman}
+\setmainjfont[
+    YokoFeatures       = {JFM=jlreq}, 
+    TateFeatures       = {JFM=jlreqv}, 
+    BoldFont           = MS-Mincho, 
+    BoldFeatures       = {FakeBold=2}, 
+    ItalicFont         = MS-Mincho, 
+    ItalicFeatures     = {FakeSlant=0.33}, 
+    BoldItalicFont     = MS-Mincho, 
+    BoldItalicFeatures = {FakeBold=2, FakeSlant=0.33}
+]{MS-Mincho}
+\setsansjfont[
+    YokoFeatures       = {JFM=jlreq}, 
+    TateFeatures       = {JFM=jlreqv}, 
+    BoldFont           = MS-Mincho, 
+    BoldFeatures       = {FakeBold=2}, 
+    ItalicFont         = MS-Mincho, 
+    ItalicFeatures     = {FakeSlant=0.33}, 
+    BoldItalicFont     = MS-Mincho, 
+    BoldItalicFeatures = {FakeBold=2, FakeSlant=0.33}
+]{MS-Mincho}
+
+\newjfontfamily\fontcap[
+    YokoFeatures       = {JFM=jlreq}, 
+    TateFeatures       = {JFM=jlreqv}, 
+    BoldFont           = MS-Gothic, 
+]{MS-Gothic}
+
 % PCで見るように自動リンク
 \usepackage{hyperref}
 
@@ -61,7 +92,7 @@
   % #3: caption text
   \begin{varwidth}{\linewidth}%
     \centering
-    #1#2#3%
+    {\fontcap #1#2#3}%
   \end{varwidth}%
 }
 
@@ -103,6 +134,8 @@
 \captionsetup{format=capfmt}
 % 番号と見出しの区切りを空白に
 \captionsetup{labelsep=quad}
+% bold体に
+\captionsetup{font=bf}
 
 \makeatletter
     % abstractを通常のsectionと同様に変更
@@ -119,7 +152,7 @@
     \def\Hline{
         \noalign{\ifnum0=`}\fi\hrule \@height 4.\arrayrulewidth \futurelet
         \reserved@a\@xhline}
-    
+
     % ソースコードのキャプション見出しを変更
     \renewcommand{\lstlistingname}{コード}
 
@@ -165,8 +198,6 @@
 \begin{abstract}
 
 ここに要旨を書く。
-このページはページ番号が割り振られない。
-中央寄せを解除し、他の章と同じような見た目にしている。
 
 \end{abstract} 
 
@@ -177,24 +208,16 @@
 
 \section{実験器具}
 
-\subsection{環境}
+実験器具を書く
 
 \begin{itemize}
-    \item PC
-    \item vscode
-    \item TexLive2022
-  \end{itemize}
+    \item 箇条書きの例1
+    \item 箇条書きの例2
+\end{itemize}
 
 \section{実験方法}
 
 実験方法を記載する。
-
-\begin{lstlisting}[
-    caption=,
-    label=code:
-]
-insert here
-\end{lstlisting}
 
 \section{実験結果}
 
@@ -209,26 +232,13 @@ insert here
 
 結論を記載する。
 
-ここに参考文献を引用する例を示す。
-
-\cite{hon2}
-
-\cite{hon1-a}
-
-\cite{hon1-b}
-
-\cite{webpage1}
-
-\cite{handbook}
-
-
 % 参考文献リストを作成
 
 % junsrtは参照した順で単純に書くもの (japanese unsort)
 \bibliographystyle{junsrt}
 
-% simple-report.bibを文献データベースとして読み込む
-\bibliography{simple-report}
+% example.bibを文献データベースとして読み込む
+\bibliography{example}
 
 % 付録を記載
 \appendix
@@ -236,10 +246,5 @@ insert here
 \section{付録1}
 
 付録はappendix後に書ける
-
-\section{付録2}
-
-appendix後に普通にsectionを書くとA.B.に変化する
-
 
 \end{document}
