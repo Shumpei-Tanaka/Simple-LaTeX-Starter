@@ -1,7 +1,7 @@
 {
     "insert figure": {
         "scope": "latex",
-        "prefix": "sfigure",
+        "prefix": "@figure",
         "body": [
           "\\begin{figure}[H]",
           "\t\\centering",
@@ -16,7 +16,7 @@
     },
     "insert table": {
         "scope": "latex",
-        "prefix": "stable",
+        "prefix": "@table",
         "body": [
             "\\begin{table}[H]",
             "\t\\centering",
@@ -31,23 +31,23 @@
         ],
         "description": "insert table"
     },
-    "make itaric": {
-        "scope": "latex",
-        "prefix": "sitaric",
-        "body": [
-            "\\textit{${TM_SELECTED_TEXT}}",
-        ],
-    },
+    // "make itaric": {
+    //     "scope": "latex",
+    //     "prefix": "@itaric",
+    //     "body": [
+    //         "\\textit{${TM_SELECTED_TEXT}}",
+    //     ],
+    // },
     "insert margin": {
         "scope": "latex",
-        "prefix": "smargine",
+        "prefix": "@margine",
         "body": [
             "\\vskip\\baselineskip",
         ],
     },
     "insert code": {
         "scope": "latex",
-        "prefix": "scode",
+        "prefix": "@code",
         "body": [
             "\\begin{lstlisting}[",
             "    caption=${1},",
