@@ -54,13 +54,13 @@
 
 ## Demo
 
-サンプル(/srcs/simple-report)の.tex をタイプセットし、その結果を右側に表示しながら書き換えている様子を示す。
+サンプル(/srcs/simple-chem-report)の.tex をタイプセットし、その結果を右側に表示しながら書き換えている様子を示す。
 
 ![alt text](readme.md_assets/image.png)
 
 ![alt text](readme.md_assets/image-1.png)
 
-具体的な入力例を[/srcs/simple-report.tex](/srcs/simple-report.tex)、その出力例を[/examples/srcs/simple-report/simple-report.pdf](/examples/srcs/simple-report/simple-report.pdf)に示す。
+具体的な入力例を[/srcs/simple-chem-report.tex](/srcs/simple-chem-report.tex)、その出力例を[/examples/srcs/simple-chem-report/simple-chem-report.pdf](/examples/srcs/simple-chem-report/simple-chem-report.pdf)に示す。
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -236,7 +236,7 @@ $\LaTeX$ そのものはテキストファイルで記述するため、編集�
     -   ![alt text](readme.md_assets/image-5.png)
 -   .vscode/setting.json に $\LaTeX$ を扱う設定が記載されている
     -   これは`Simple-LaTeX-Starter.code-workspace`を vscode で開くことで自動で反映される
--   srcs/simple-report.tex をそのまま vscode 上で開く
+-   srcs/simple-chem-report.tex をそのまま vscode 上で開く
 
 ### タイプセットをして pdf を作成する
 
@@ -251,10 +251,10 @@ $\LaTeX$ そのものはテキストファイルで記述するため、編集�
 ### 画像などのファイルを手軽に貼り付ける
 
 -   画像ファイルをコピーした状態にする
--   srcs/simple-report.tex のどこかの行を編集状態にする
+-   srcs/simple-chem-report.tex のどこかの行を編集状態にする
 -   Ctrl+Alt+V を押す
--   画像が自動で srcs/simple-report.tex_assets/にコピーされる
--   その保存した場所へのパスが srcs/simple-report.tex に入力される
+-   画像が自動で srcs/simple-chem-report.tex_assets/にコピーされる
+-   その保存した場所へのパスが srcs/simple-chem-report.tex に入力される
 
 ### スニペットを使う
 
@@ -266,7 +266,7 @@ $\LaTeX$ における画像の貼り付け、表の作成、段落間の空行�
 
 具体的な使用方法は以下の通り
 
--   srcs/simple-report.tex のどこかの行を編集状態にする
+-   srcs/simple-chem-report.tex のどこかの行を編集状態にする
 -   次の表の命令のどれかを打ち込むと自動補完され、矢印キーで選択し Enter を押すとスニペットが展開される。
 
 | 命令文   | 機能                                       |
