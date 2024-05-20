@@ -49,6 +49,8 @@
         1. [Uninstall TeX Liveを使用してアンインストール](#uninstall-tex-liveを使用してアンインストール)
         2. [インストール先(`C\:texlive`)フォルダを削除する](#インストール先ctexliveフォルダを削除する)
     4. [Sumatra PDF](#sumatra-pdf)
+    5. [フォントを変更するとエラーが出てタイプセットできないときの対処](#フォントを変更するとエラーが出てタイプセットできないときの対処)
+        1. [`luatexja`パッケージの手動アップデート手順](#luatexjaパッケージの手動アップデート手順)
 
 ## Demo
 
@@ -404,6 +406,46 @@ PDFをPCで見るにはSumatra PDFがおすすめ
     -   画面が広くとれ、PDFを読みやすい
     -   日本語に対応している
     -   PDFのパスワードを保存でき、いちいち再入力が必要ない
+
+### フォントを変更するとエラーが出てタイプセットできないときの対処
+
+次のようなエラーが出てタイプセットできないときの対処法
+
+```
+Undefined control sequence.
+\__ltj_fontspec_setup_single_size:nnn ...fss:Nnnn
+```
+
+これは2024/05/05と2024/05/11のfontspec更新によるエラー
+
+既に報告・FIXが入っている
+
+-   [luatexja-fontspec エラー ! Undefined control sequence. okumuralab.org/tex/mod/forum](https://okumuralab.org/tex/mod/forum/discuss.php?d=3755)
+-   [luatexja-fontspec の Undefined control sequence github.com/luatexja/luatexja/issues/6](https://github.com/luatexja/luatexja/issues/6)
+-   [luatexja-preset の \ltjapplypreset に関するクラッシュ github.com/luatexja/luatexja/issues/8](https://github.com/luatexja/luatexja/issues/8)
+
+2024/05/17では`TeX Live`にまだ更新がアップロードされていないため、
+`luatexja`パッケージの手動アップデートが必要
+
+#### `luatexja`パッケージの手動アップデート手順
+
+-   次のリンクから最新版をダウンロードする
+    -   [https://github.com/luatexja/luatexja/tags](https://github.com/luatexja/luatexja/tags)
+    -   ![alt text](readme.md_assets/image-48.png)
+    -   フォルダを`PC`→`C`→`texlive`と開き、`C:\texlive`を表示する
+    -   ![alt text](readme.md_assets/a.png)
+-   正しく開けると次図のような表示になる
+    -   ![alt text](readme.md_assets/image-31.png)
+-   `C:\texlive\[バージョン]\texmf-dist\tex\luatex\luatexja`まで開く
+    -   ![alt text](readme.md_assets/image-49.png)
+-   ダウンロードした`luatexja-[version].zip`の中の`src`の中身を`C:\texlive\[バージョン]\texmf-dist\tex\luatex\luatexja`にすべて上書きする
+-   ![alt text](readme.md_assets/image-50.png)
+-   コマンドプロンプトを開く
+    -   ![alt text](readme.md_assets/image-51.png)
+    -   ![alt text](readme.md_assets/image-52.png)
+-   `mktexlsr`を実行する
+    -   ![alt text](readme.md_assets/image-53.png)
+-   手順はこれで終了。タイプセットできるようになっているか確認する
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
