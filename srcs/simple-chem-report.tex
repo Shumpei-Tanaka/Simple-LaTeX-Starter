@@ -183,18 +183,11 @@
     \item PC
     \item vscode
     \item TexLive2022
-  \end{itemize}
+\end{itemize}
 
 \section{実験方法}
 
 実験方法を記載する。
-
-\begin{lstlisting}[
-    caption=,
-    label=code:
-]
-insert here
-\end{lstlisting}
 
 \section{実験結果}
 
@@ -203,6 +196,203 @@ insert here
 \section{考察}
 
 考察を記載する。
+
+表は\aref{tbl:example}のように記載する
+
+\begin{table}[H]
+    \centering
+    \caption{表の例}
+    \label{tbl:example}
+    \begin{tabular}{ccc}
+        \Hline
+        1 & 2 & 3
+        \\\Hline
+    \end{tabular}
+\end{table}
+
+
+図は\aref{fig:ex1}のように記載する
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{simple-chem-report.tex_assets/fig1.png}
+    \caption{図の貼り付けの例}
+    \label{fig:ex1}
+\end{figure}
+
+ソースコードは\aref{code:ex1}のように記載する
+
+\begin{lstlisting}[
+    caption=ソースコード貼り付けの例,
+    label=code:ex1
+]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{simple-chem-report.tex_assets/fig1.png}
+    \caption{図の貼り付けの例}
+    \label{fig:ex1}
+\end{figure}
+\end{lstlisting}
+
+化学構造図は\aref{fig:penta}のように書く
+
+\begin{figure}[H]
+    \centering
+    \pentamethylene{1==a1;2==a2;3==a3;4==a4;5==a5}%
+    {1==1;2==2;3==3;4==4;5==5}
+    \bzdrv{1==1;2==2;3==3;4==4;5==5;6==6}
+    \caption{化学構造図の例 兼結合数字の位置}
+    \label{fig:penta}
+\end{figure}
+
+
+pentamethyleneの3とbzdrvの1をつなぐと\aref{fig:p3bz1}のようになる。
+一番長い鎖が最初に来るように書くこと。また、ベンゼンは後になる。
+重なって邪魔になる部分は消去した。
+
+pentamethyleneの3の腕とbzdrvの1の腕が重なり合うという意味の書き方。
+pentamethyleneの3に直接bzdrvを書き、bzdrvの1の腕に受け取る意味の(yl)を書く
+
+\begin{figure}[H]
+    \centering
+    \pentamethylene{1==a1;2==a2;3==a3;4==a4;5==a5}%
+    {2==2;4==4;3==%
+    \bzdrv{1==(yl);2==2;3==3;4==4;5==5;6==6}}
+    \vspace*{2cm}
+    \caption{pentamethyleneの3とbzdrvの1をつなぐ}
+    \label{fig:p3bz1}
+\end{figure}
+
+繋がる個数によって接頭辞がつく。
+hexa(6)以上は(yl)を使用してつなぎ合わせて作る。
+
+\[
+    \centering
+    \begin{tabular}{ll}
+        \Hline
+        接頭辞 & 個数
+        \\\Hline
+        di & 2\\
+        try & 3\\
+        tetra & 4\\
+        penta & 5\\
+        hexa & 6
+        \\\Hline
+    \end{tabular}
+\]
+
+接尾辞は次のような意味
+
+\[
+    \centering
+    \begin{tabular}{llll}
+        \Hline
+        接尾辞 & 省略元 & 意味 & 例
+        \\\Hline
+        v & vertical   & 垂直方向  & bzdrv\\
+        h & horizontal & 水平方向  & bzdrh\\
+        i & inverse    & 逆向き    & trimethylenei
+        \\\Hline
+    \end{tabular}
+\]
+
+\begin{align*}
+    bzdrv
+    &&
+    bzdrh
+    &&
+    trimethylene
+    &&
+    trimethylene
+    \\
+    \bzdrv{}
+    &&
+    \bzdrh{}
+    &&
+    \trimethylene{1==a1;2==a2;3==a3}{1==1;2==2;3==3}
+    &&
+    \trimethylenei{1==a1;2==a2;3==a3}{1==1;2==2;3==3}
+\end{align*}
+
+
+ジグザグ形状はmethylene。
+
+\begin{align*}
+    dimethylene
+    &&
+    trimethylene
+    &&
+    tetramethylene
+    \\
+    \dimethylene{1==a1;2==a2}{1==1;2==2}
+    &&
+    \trimethylene{1==a1;2==a2;3==a3}{1==1;2==2;3==3}
+    &&
+    \tetramethylene{1==a1;2==a2;3==a3;4==4a}{1==1;2==2;3==3;4==4}
+\end{align*}
+
+\begin{align*}
+    pentamethylene
+    &&
+    hexamethylene
+    \\
+    \pentamethylene{1==a1;2==a2;3==a3;4==4a;5==5a}{1==1;2==2;3==3;4==4;5==5}
+    &&
+    \hexamethylene{1==a1;2==a2;3==a3;4==4a;5==5a;6==6a}{1==1;2==2;3==3;4==4;5==5;6==6}
+\end{align*}
+
+trigonal
+
+\begin{align*}
+    dtrigonal
+    &&
+    utrigonal
+    \\
+    \dtrigonal{0==0;1==1;2==2;3==3}
+    &&
+    \utrigonal{0==0;1==1;2==2;3==3}
+\end{align*}
+
+腕にxSa,xSbと指定すると垂直方向を示せる。
+
+$$
+\bzdrv{1Sa==1Sa;1Sb==1Sb;2Sa==2Sa;2Sb==2Sb;3Sa==3Sa;3Sb==3Sb;4Sa==4Sa;4Sb==4Sb;4Sa==4Sa;4Sb==4Sb;5Sa==5Sa;5Sb==5Sb;6Sa==6Sa;6Sb==6Sb;}
+$$
+
+英語数字(n)fuseで(n)の輪を結合できる。
+
+\begin{align*}
+    &&
+    threefuse
+    &&
+    fourfuse
+    &&
+    fivefuse
+    &&
+    sixfuse
+    &&
+    \\
+    &&
+    \threefusev{}{}{}
+    &&
+    \fourfuse{}{}{}
+    &&
+    \fivefusev{}{}{}
+    &&
+    \sixfusev{}{}{}
+    &&
+\end{align*}
+
+\begin{XyMcompd}(1200,300)(250,200){cpd:cycpro3}{etst}
+    \cyclopropaneh{1Sa==%
+    \ryl(4==CO){4==\tetrahedral{2==(yl);0==CH;1==\ChemForm{COCH_{3}};%
+    4==\ChemForm{COOC_{2}H_{5}}}};1Sb==\ChemForm{CH_3}}
+\end{XyMcompd}
+
+\begin{XyMcompd}(1000,850)(-150,-150){}{}
+    \Ethylenev{1==C;2==N}{3==OH;2==\bzdrv{6==(yl)};1==\bzdrv{2==(yl)}}
+\end{XyMcompd}
+
 
 
 \section{結論}
