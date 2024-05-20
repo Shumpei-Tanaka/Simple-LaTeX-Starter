@@ -5,6 +5,20 @@
 % PCで見るように自動リンク
 \usepackage{hyperref}
 
+% hyperrefを使ってrefの種類を自動判別して接頭辞をつける
+\def\equationautorefname~#1\null{\textrm{~(#1)式\;}\null}
+\def\figureautorefname~#1\null{ 図~#1\null}
+\def\tableautorefname~#1\null{ 表~#1\null}
+\def\sectionautorefname~#1\null{第~#1章\null}
+\def\subsectionautorefname~#1\null{~#1節\null}
+\def\subsubsectionautorefname~#1\null{~#1節\null}
+\def\paragraphautorefname~#1\null{第~#1パラグラフ\null}
+\def\subparagraphautorefname~#1\null{第~#1小パラグラフ\null}
+\def\pageautorefname~#1\null{~#1ページ \null}
+\def\appendixautorefname~#1\null{~#1 \null}
+% 参照のショートカット
+\newcommand\aref[1]{\autoref{#1}}
+
 % 画像貼り付け
 \usepackage{graphicx}
 
@@ -28,9 +42,15 @@
 
 % セクションにドットをつける (1 見出し → 1. 見出し)
 \usepackage{secdot}
-\sectiondot{section}
 \sectionpunct{section}{.}
+\sectionpunct{subsection}{}
+\sectionpunct{subsubsection}{}
+\sectionpunct{paragraph}{}
+\sectionpunct{subparagraph}{}
 
+% 問題なくキャプションは使えるが警告が出るため黙らせる
+\usepackage{silence}
+\WarningFilter{caption}{Unknown document}
 % キャプションを設定
 \usepackage{caption}
 \usepackage{varwidth}
@@ -57,7 +77,7 @@
 \lstset{
   basicstyle={\ttfamily},
   identifierstyle={\small},
-  commentstyle={\smallitshape},
+  commentstyle={\small},
   keywordstyle={\small\bfseries},
   ndkeywordstyle={\small},
   stringstyle={\small\ttfamily},
@@ -65,18 +85,16 @@
   breaklines=true,
   columns=[l]{fullflexible},
   numbers=left,
-  xrightmargin=0zw,
-  xleftmargin=3zw,
+  xrightmargin=0em,
+  xleftmargin=3em,
   numberstyle={\scriptsize},
   stepnumber=1,
-  numbersep=1zw,
+  numbersep=1em,
   lineskip=-0.5ex
 }
 
-% 図表参照のショートカット
-\newcommand\reffig[1]{図~\ref{#1}}
-\newcommand\reftbl[1]{表~\ref{#1}}
-\newcommand\refcode[1]{ソースコード~\ref{#1}}
+% 参考文献の参照を上付きに
+\usepackage[super]{cite}
 
 \begin{document}
 
@@ -84,7 +102,7 @@
 % 作ったスタイルを割り当て
 \captionsetup{format=capfmt}
 % 番号と見出しの区切りを空白に
-\captionsetup{labelsep=space}
+\captionsetup{labelsep=quad}
 
 \makeatletter
     % abstractを通常のsectionと同様に変更
@@ -101,6 +119,15 @@
     \def\Hline{
         \noalign{\ifnum0=`}\fi\hrule \@height 4.\arrayrulewidth \futurelet
         \reserved@a\@xhline}
+    
+    % ソースコードのキャプション見出しを変更
+    \renewcommand{\lstlistingname}{コード}
+
+    % 参考文献の参照を <x)> の形式に変更
+    \renewcommand\citeform[1]{#1)}
+
+    % 参考文献のリストの見出しを <x)> の形式に変更
+    \def\@biblabel#1{#1)}
 \makeatother
 
 % \\で改行。もうちょっと空白欲しいから二重に改行
@@ -138,8 +165,6 @@
 \begin{abstract}
 
 ここに要旨を書く。
-このページはページ番号が割り振られない。
-中央寄せを解除し、他の章と同じような見た目にしている。
 
 \end{abstract} 
 
@@ -150,13 +175,10 @@
 
 \section{実験器具}
 
-\subsection{環境}
-
 \begin{itemize}
-    \item PC
-    \item vscode
-    \item TexLive2022
-  \end{itemize}
+    \item 箇条書き1
+    \item 箇条書き2
+\end{itemize}
 
 \section{実験方法}
 
@@ -170,31 +192,17 @@
 
 考察を記載する。
 
-
 \section{結論}
 
 結論を記載する。
-
-ここに参考文献を引用する例を示す。
-
-\cite{hon2}
-
-\cite{hon1-a}
-
-\cite{hon1-b}
-
-\cite{webpage1}
-
-\cite{handbook}
-
 
 % 参考文献リストを作成
 
 % junsrtは参照した順で単純に書くもの (japanese unsort)
 \bibliographystyle{junsrt}
 
-% simple-report.bibを文献データベースとして読み込む
-\bibliography{simple-report}
+% example.bibを文献データベースとして読み込む
+\bibliography{example}
 
 % 付録を記載
 \appendix
@@ -202,10 +210,5 @@
 \section{付録1}
 
 付録はappendix後に書ける
-
-\section{付録2}
-
-appendix後に普通にsectionを書くとA.B.に変化する
-
 
 \end{document}

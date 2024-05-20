@@ -49,16 +49,18 @@
         1. [Uninstall TeX Liveを使用してアンインストール](#uninstall-tex-liveを使用してアンインストール)
         2. [インストール先(`C\:texlive`)フォルダを削除する](#インストール先ctexliveフォルダを削除する)
     4. [Sumatra PDF](#sumatra-pdf)
+    5. [フォントを変更するとエラーが出てタイプセットできないときの対処](#フォントを変更するとエラーが出てタイプセットできないときの対処)
+        1. [`luatexja`パッケージの手動アップデート手順](#luatexjaパッケージの手動アップデート手順)
 
 ## Demo
 
-サンプル(/srcs/simple-report)の.tex をタイプセットし、その結果を右側に表示しながら書き換えている様子を示す。
+サンプル(/srcs/simple-chem-report)の.tex をタイプセットし、その結果を右側に表示しながら書き換えている様子を示す。
 
 ![alt text](readme.md_assets/image.png)
 
 ![alt text](readme.md_assets/image-1.png)
 
-具体的な入力例を[/srcs/simple-report.tex](/srcs/simple-report.tex)、その出力例を[/examples/srcs/simple-report/simple-report.pdf](/examples/srcs/simple-report/simple-report.pdf)に示す。
+具体的な入力例を[/srcs/simple-chem-report.tex](/srcs/simple-chem-report.tex)、その出力例を[/examples/srcs/simple-chem-report/simple-chem-report.pdf](/examples/srcs/simple-chem-report/simple-chem-report.pdf)に示す。
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,7 +236,7 @@ $\LaTeX$ そのものはテキストファイルで記述するため、編集�
     -   ![alt text](readme.md_assets/image-5.png)
 -   .vscode/setting.json に $\LaTeX$ を扱う設定が記載されている
     -   これは`Simple-LaTeX-Starter.code-workspace`を vscode で開くことで自動で反映される
--   srcs/simple-report.tex をそのまま vscode 上で開く
+-   srcs/simple-chem-report.tex をそのまま vscode 上で開く
 
 ### タイプセットをして pdf を作成する
 
@@ -249,10 +251,10 @@ $\LaTeX$ そのものはテキストファイルで記述するため、編集�
 ### 画像などのファイルを手軽に貼り付ける
 
 -   画像ファイルをコピーした状態にする
--   srcs/simple-report.tex のどこかの行を編集状態にする
+-   srcs/simple-chem-report.tex のどこかの行を編集状態にする
 -   Ctrl+Alt+V を押す
--   画像が自動で srcs/simple-report.tex_assets/にコピーされる
--   その保存した場所へのパスが srcs/simple-report.tex に入力される
+-   画像が自動で srcs/simple-chem-report.tex_assets/にコピーされる
+-   その保存した場所へのパスが srcs/simple-chem-report.tex に入力される
 
 ### スニペットを使う
 
@@ -264,15 +266,15 @@ $\LaTeX$ における画像の貼り付け、表の作成、段落間の空行�
 
 具体的な使用方法は以下の通り
 
--   srcs/simple-report.tex のどこかの行を編集状態にする
+-   srcs/simple-chem-report.tex のどこかの行を編集状態にする
 -   次の表の命令のどれかを打ち込むと自動補完され、矢印キーで選択し Enter を押すとスニペットが展開される。
 
 | 命令文   | 機能                                       |
 | -------- | ------------------------------------------ |
-| sfigure  | 画像を貼り付ける場所を用意する             |
-| stable   | 表の雛形を作成                             |
-| smargine | 段落間などに空行を挿入                     |
-| scode    | プログラムコードを貼り付ける場所を用意する |
+| @figure  | 画像を貼り付ける場所を用意する             |
+| @table   | 表の雛形を作成                             |
+| @margine | 段落間などに空行を挿入                     |
+| @code    | プログラムコードを貼り付ける場所を用意する |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -404,6 +406,46 @@ PDFをPCで見るにはSumatra PDFがおすすめ
     -   画面が広くとれ、PDFを読みやすい
     -   日本語に対応している
     -   PDFのパスワードを保存でき、いちいち再入力が必要ない
+
+### フォントを変更するとエラーが出てタイプセットできないときの対処
+
+次のようなエラーが出てタイプセットできないときの対処法
+
+```
+Undefined control sequence.
+\__ltj_fontspec_setup_single_size:nnn ...fss:Nnnn
+```
+
+これは2024/05/05と2024/05/11のfontspec更新によるエラー
+
+既に報告・FIXが入っている
+
+-   [luatexja-fontspec エラー ! Undefined control sequence. okumuralab.org/tex/mod/forum](https://okumuralab.org/tex/mod/forum/discuss.php?d=3755)
+-   [luatexja-fontspec の Undefined control sequence github.com/luatexja/luatexja/issues/6](https://github.com/luatexja/luatexja/issues/6)
+-   [luatexja-preset の \ltjapplypreset に関するクラッシュ github.com/luatexja/luatexja/issues/8](https://github.com/luatexja/luatexja/issues/8)
+
+2024/05/17では`TeX Live`にまだ更新がアップロードされていないため、
+`luatexja`パッケージの手動アップデートが必要
+
+#### `luatexja`パッケージの手動アップデート手順
+
+-   次のリンクから最新版をダウンロードする
+    -   [https://github.com/luatexja/luatexja/tags](https://github.com/luatexja/luatexja/tags)
+    -   ![alt text](readme.md_assets/image-48.png)
+    -   フォルダを`PC`→`C`→`texlive`と開き、`C:\texlive`を表示する
+    -   ![alt text](readme.md_assets/a.png)
+-   正しく開けると次図のような表示になる
+    -   ![alt text](readme.md_assets/image-31.png)
+-   `C:\texlive\[バージョン]\texmf-dist\tex\luatex\luatexja`まで開く
+    -   ![alt text](readme.md_assets/image-49.png)
+-   ダウンロードした`luatexja-[version].zip`の中の`src`の中身を`C:\texlive\[バージョン]\texmf-dist\tex\luatex\luatexja`にすべて上書きする
+-   ![alt text](readme.md_assets/image-50.png)
+-   コマンドプロンプトを開く
+    -   ![alt text](readme.md_assets/image-51.png)
+    -   ![alt text](readme.md_assets/image-52.png)
+-   `mktexlsr`を実行する
+    -   ![alt text](readme.md_assets/image-53.png)
+-   手順はこれで終了。タイプセットできるようになっているか確認する
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
